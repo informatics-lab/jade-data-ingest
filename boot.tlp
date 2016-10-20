@@ -1,0 +1,7 @@
+#cloud-config
+runcmd:
+    # install docker
+    - 'curl -sSL https://get.docker.com/ | sh'
+
+    # Start Docker
+    - 'service docker start'
