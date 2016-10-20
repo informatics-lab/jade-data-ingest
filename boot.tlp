@@ -1,7 +1,16 @@
 #cloud-config
 runcmd:
+    # Install git
+    - 'yum install -y git'
+
     # install docker
     - 'curl -sSL https://get.docker.com/ | sh'
 
     # Start Docker
     - 'service docker start'
+
+    # Get, build and run container
+    - 'git clone https://github.com/met-office-lab/jade.git /usr/local/share/jade-data-ingest'
+    - 'cd /usr/local/share/jade-data-ingest'
+    - 'docker build . -t jade-data-ingest'
+    - 'docker run -d jade-data-ingest'
