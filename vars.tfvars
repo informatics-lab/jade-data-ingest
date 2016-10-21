@@ -1,1 +1,0 @@
-queue-name = "mogreps-data-in"

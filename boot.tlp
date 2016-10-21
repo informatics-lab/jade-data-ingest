@@ -10,7 +10,8 @@ runcmd:
     - 'service docker start'
 
     # Get, build and run container
-    - 'git clone https://github.com/met-office-lab/jade.git /usr/local/share/jade-data-ingest'
-    - 'cd /usr/local/share/jade-data-ingest'
-    - 'docker build . -t jade-data-ingest'
-    - 'docker run -d jade-data-ingest'
+    - 'mkdir -p /root/jade-data-ingest'
+    - 'git clone https://github.com/met-office-lab/jade-data-ingest.git /root/jade-data-ingest'
+    - 'cd /root/jade-data-ingest'
+    - 'docker build -t jade-data-ingest .'
+    - 'docker run -dit -e QUEUE_NAME="${queue_name}" jade-data-ingest'
