@@ -14,4 +14,4 @@ runcmd:
     - 'git clone https://github.com/met-office-lab/jade-data-ingest.git /root/jade-data-ingest'
     - 'cd /root/jade-data-ingest'
     - 'docker build -t jade-data-ingest .'
-    - 'docker run -dit -e QUEUE_NAME="${queue_name}" jade-data-ingest'
+    - 'docker run -d -e QUEUE_NAME="${queue_name}" --restart=unless-stopped jade-data-ingest'
