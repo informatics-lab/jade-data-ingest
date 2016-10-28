@@ -9,10 +9,6 @@ variable "queue_name" {
   default = "mogreps-data-in"
 }
 
-provider "aws" {
-  region = "eu-west-1"
-}
-
 resource "aws_instance" "ingester" {
   ami                   = "ami-d41d58a7"
   instance_type         = "t2.micro"
@@ -54,7 +50,7 @@ POLICY
 }
 
 resource "aws_sqs_queue" "dlq" {
-  name = "DLQ.${var.queue_name}"
+  name = "DLQ-${var.queue_name}"
 }
 
 resource "aws_s3_bucket" "bucket" {

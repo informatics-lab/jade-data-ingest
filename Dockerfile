@@ -6,6 +6,7 @@ WORKDIR /root
 RUN conda install -y boto3
 RUN conda install -y -c scitools iris
 
-ADD ingest.py /root/ingest.py
+ADD scripts /root/
 
-CMD python /root/ingest.py
+WORKDIR /root
+CMD python ingest.py
