@@ -2,7 +2,6 @@
 
 Watches a queue for new data.
 Interrogates the new data to get metadata and sends that to an elastic search instance.
-Currently just print to STD out.
 No error handling in scripts, rather docker manages container restart and redrive policy prevents processing same message more than 4 times.
 Currently points at test bucket "jade-ingest-test-theo"
 
